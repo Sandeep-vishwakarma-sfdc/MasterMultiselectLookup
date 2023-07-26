@@ -1,0 +1,14 @@
+.slds-button {
+    border: none;
+    background: none;
+}
+.slds-input {
+border: none;
+    background: none;
+}
+.slds-dropdown_left {
+    margin-left: -33px!important;
+}
+.slds-pill{
+   padding:10px;
+}
