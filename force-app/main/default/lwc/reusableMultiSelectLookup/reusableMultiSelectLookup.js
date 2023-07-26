@@ -12,7 +12,7 @@ export default class ReusableMultiSelectLookup extends LightningElement {
     @api iconName = 'standard:account'
     @track messageFlag = false;
     @track isSearchLoading = false;
-    @api placeholder = 'Search..';
+    @api placeholder = 'Search Role';
     @track searchKey = '';
     delayTimeout;
     @api type = [];
@@ -79,6 +79,8 @@ export default class ReusableMultiSelectLookup extends LightningElement {
         var recId = event.target.dataset.id;
         var selectName = event.currentTarget.dataset.name;
         let newsObject = this.searchRecords.find(data => data.Id === recId);
+        newsObject = JSON.parse(JSON.stringify(newsObject));
+        newsObject.iconName = this.iconName;
         this.selectedRecords.push(newsObject);
         this.template.querySelector('.lookupInputContainer').classList.remove('slds-is-open');
         let selRecords = this.selectedRecords;
@@ -113,5 +115,6 @@ export default class ReusableMultiSelectLookup extends LightningElement {
     handleSelectedType(event){
         this.objectname = event.currentTarget.dataset.api;
         this.iconName = event.currentTarget.dataset.name;
+        this.placeholder = 'Search '+event.currentTarget.dataset.title;
     }
 }

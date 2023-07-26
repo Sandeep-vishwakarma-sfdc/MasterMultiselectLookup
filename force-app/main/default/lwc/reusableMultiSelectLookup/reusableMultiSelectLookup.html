@@ -12,7 +12,7 @@
                             
                             <ul>
                              <template for:each={type} for:item="t">
-                            <li key={t.apiName} data-api={t.apiName} data-name={t.iconName} class="slds-dropdown__item" role="presentation" onclick={handleSelectedType}>
+                            <li key={t.apiName} data-api={t.apiName} data-name={t.iconName} data-title={t.title} class="slds-dropdown__item" role="presentation" onclick={handleSelectedType}>
                                 <a href="#" role="menuitem" tabindex="-1">
                                   <span class="slds-truncate" title="Menu Item Three">
                                     <lightning-icon icon-name={t.iconName} variant="circle" ></lightning-icon>
@@ -38,7 +38,7 @@
                     <template for:each={selectedRecords} for:item="serecord">
                         <span key={serecord.Id}>
                         <lightning-pill label={serecord.Name} name={serecord.Id} onremove={removeRecord} style="padding: 4px;">
-                                <lightning-icon icon-name={iconName} variant="circle" alternative-text={serecord.Name}></lightning-icon>
+                                <lightning-icon icon-name={serecord.iconName} variant="circle" alternative-text={serecord.Name}></lightning-icon>
                             </lightning-pill>
                         </span>
                     </template>
